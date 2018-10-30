@@ -7,6 +7,7 @@ obs : é necessário ter o docker instalado em seu Linux (apenas linux)
 - Usuários que tem o seu sistema baseado em Debian podem usar o apt-get ou o aptitude:
 
 sudo apt-get update
+
 sudo apt-get install docker.io
 
 - Usuários que tem o seu sistema baseado em RedHat podem usar o yum:
