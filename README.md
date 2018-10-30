@@ -13,20 +13,20 @@ sudo apt-get install docker.io
 
 yum install docker
 
-### Baixar os conteineres e a aplicação
+# Baixar os conteiners e a aplicação
 
-# 0 - baixando os dados da aplicação 
+### 0 - baixando os dados da aplicação 
 
 descompacte o arquivo enquete.tar.gz dentro de /root
 
-# 1 - baixe os dockers abaixo
+### 1 - baixe os dockers abaixo
 
 docker pull diellyr/enquete.mariadb
 docker pull diellyr/enquete.nodejs
 docker pull diellyr/enquete.http
 
 
-# 2 - iniciando os dockers
+### 2 - iniciando os dockers
 
 ### - o Primeiro start pode ser feito conforme abaixo
 
@@ -74,7 +74,7 @@ docker start httpd
 
 ..........................................................................
 
-## troubleshouting
+### troubleshouting
 
 - verificando se o nodejs está funcionando
 
