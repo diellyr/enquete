@@ -33,7 +33,7 @@ docker pull diellyr/enquete.http
 
 - start mariadb
 
-docker run -it --name mariadb -v /root/Enquete/mariadb:/var/lib/mysql -p 3360:3360 -d diellyr/enquete.mariadb
+docker run -it --name mariadb -v /root/Enquete/mariadb:/var/lib/mysql -p 3306:3306 -d diellyr/enquete.mariadb
 
 - start nodejs
 
