@@ -27,7 +27,46 @@ yum install docker
 yum install docker-compose
 
 
-# Opção 1 - Usando com Docker compose
+# Opção 1 - Usando Docker Compose com Pipeline Jenkinsfile ( A opção mais facil para quem já esta familiarizado )
+
+### A) Configure seu pipeline no Jenkins com o Jenkinsfile abaixo
+
+https://github.com/diellyr/Jenkinsfiles_Examples/blob/master/Jenkinsfile_docker-compose_Enquete
+
+### B) testando a aplicação
+
+(abra um navegador , apenas no chrome funcionou o som de inicio, no firefox funciona os demais sons )
+
+(aqui sua aplicação já deve estar funcionando)
+http://localhost:800/
+
+
+
+(no final tem uma seção de troubleshooting, apenas se houver algum erro)
+
+
+### parando e subindo os conteineres
+
+- para o banco
+docker stop mariadb, 
+docker start mariadb
+
+- para o nodejs
+docker stop node
+docker start node
+
+- para o apache
+docker stop http
+docker start http
+
+
+#Fim
+
+
+------------------------------------------------------------------------------------------
+
+
+# Opção 2 - Usando com Docker compose
 
 ### A) - baixando os dados da aplicação 
 
@@ -52,6 +91,21 @@ http://localhost:800/
 (no final tem uma seção de troubleshooting, apenas se houver algum erro)
 
 
+### parando e subindo os conteineres
+
+- para o banco
+docker stop mariadb, 
+docker start mariadb
+
+- para o nodejs
+docker stop node
+docker start node
+
+- para o apache
+docker stop http
+docker start http
+
+
 
 # Fim
 
@@ -66,7 +120,7 @@ http://localhost:800/
 
 
 
-# Opção 2 - subindo cada container manualmente
+# Opção 3 - subindo cada container manualmente
 
 ## Baixar os conteiners e a aplicação
 
@@ -109,6 +163,22 @@ http://localhost:800
 
 
 
+### parando e subindo os conteineres
+
+- para o banco
+docker stop mariadb, 
+docker start mariadb
+
+- para o nodejs
+docker stop node
+docker start node
+
+- para o apache
+docker stop http
+docker start http
+
+
+
 
 ..........................................................................
 
@@ -123,8 +193,8 @@ docker stop node
 docker start node
 
 - para o apache
-docker stop httpd
-docker start httpd
+docker stop http
+docker start http
 
 
 -------------------------------------------------------------------------------------------
@@ -195,6 +265,21 @@ http://localhost:800/
 
 
 (no final tem uma seção de troubleshooting)
+
+
+### parando e subindo os conteineres
+
+- para o banco
+docker stop mariadb, 
+docker start mariadb
+
+- para o nodejs
+docker stop node
+docker start node
+
+- para o apache
+docker stop http
+docker start http
 
 
 
