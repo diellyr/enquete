@@ -33,6 +33,19 @@ yum install docker-compose
 
 https://github.com/diellyr/Jenkinsfiles_Examples/blob/master/Jenkinsfile_docker-compose_Enquete
 
+
+- ### dicas
+
+- dica1: usuário Jenkins com permissão sudo
+
+(incluir em /etc/sudoers)
+jenkins ALL=(ALL) NOPASSWD: ALL
+
+- dica2: permissão para o usuario jenkins com docker
+
+sudo usermod -a -G docker jenkins
+
+
 ### B) testando a aplicação
 
 (abra um navegador , apenas no chrome funcionou o som de inicio, no firefox funciona os demais sons )
