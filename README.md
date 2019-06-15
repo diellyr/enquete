@@ -107,6 +107,7 @@ http://localhost:800/
 
 
 
+
 # Opção 2 - subindo cada container manualmente
 
 ## Baixar os conteiners e a aplicação
