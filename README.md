@@ -2,6 +2,14 @@
 
 obs : é necessário ter o docker instalado em seu Linux (apenas linux)
 
+# (Atenção) Problema em 2 questões , logo estarei corrigindo
+
+- Questão 25
+problema no áudio
+
+- Questão 38
+resposta errada 
+
 ### Instalação do Docker
 
 - Usuários que tem o seu sistema baseado em Debian podem usar o apt-get ou o aptitude:
