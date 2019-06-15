@@ -34,7 +34,7 @@ yum install docker-compose
 https://github.com/diellyr/Jenkinsfiles_Examples/blob/master/Jenkinsfile_docker-compose_Enquete
 
 
-- ### dicas
+- ### dicas para dar permissão de sudo para o Jenkins e Docker
 
 - dica1: usuário Jenkins com permissão sudo
 
