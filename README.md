@@ -31,60 +31,16 @@ yum install docker-compose
 
 ### A) - baixando os dados da aplicação 
 
-descompacte o arquivo enquete.tar.gz dentro de /root
-
-### B) - altere o apontamento do nodejs para o mariadb conforme abaixo 
-(obs: logo estarei alterando esta linha e subindo aqui no github)
-
-$ vim /root/Enquete/nodejs/select.js
-//    host     : '172.20.0.2',
-host     : 'mariadb',
-
-### C) - crie um novo diretorio e adicione o arquivo abaixo ( faça um clone deste repositório para ter a indentação)
-
-$ mkdir /root/Enquete/compose/
-
-$ vim docker-compose.yml
-
-version: '3'
-services: 
-  db:
-    image: diellyr/enquete.mariadb
-    restart: always
-    hostname: mariadb
-    container_name: mariadb
-    environment:
-      - MYSQL_USER=root
-      - MYSQL_ROOT_PASSWORD=senhadoroot 
-    volumes:
-      - ../mariadb:/var/lib/mysql
-    ports: 
-      - 3306:3306
-  backend:
-    image: diellyr/enquete.nodejs
-    hostname: node
-    container_name: node
-    volumes: 
-      - ../nodejs:/root
-    ports:
-      - 3000:3000
-  frontend: 
-    image: diellyr/enquete.http
-    hostname: http
-    container_name: http
-    volumes: 
-      - ../apache:/app
-    ports: 
-      - 800:80
-      
-      
-### D) inicie o docker-compose
+descompacte o arquivo Enquete1.0.tar.gz dentro de /root
+    
+     
+### B) inicie o docker-compose
 
 $ cd /root/Enquete/compose/
 
 $ docker-compose up
 
-### E) testando a aplicação
+### C) testando a aplicação
 
 (abra um navegador , apenas no chrome funcionou o som de inicio, no firefox funciona os demais sons )
 
@@ -169,7 +125,78 @@ docker stop httpd
 docker start httpd
 
 
-..........................................................................
+-------------------------------------------------------------------------------------------
+
+
+# Opção 3 - Usando com Docker compose ( Arquivo antigo ) (somente se houver problemas na Opção 1 no começo desta página) 
+
+### A) - baixando os dados da aplicação 
+
+descompacte o arquivo Enquete.tar.gz dentro de /root
+
+### B) - altere o apontamento do nodejs para o mariadb conforme abaixo 
+
+$ vim /root/Enquete/nodejs/select.js
+//    host     : '172.20.0.2',
+host     : 'mariadb',
+
+### C) - crie um novo diretorio e adicione o arquivo abaixo ( faça um clone deste repositório para ter a indentação)
+
+$ mkdir /root/Enquete/compose/
+
+$ vim docker-compose.yml
+
+version: '3'
+services: 
+  db:
+    image: diellyr/enquete.mariadb
+    restart: always
+    hostname: mariadb
+    container_name: mariadb
+    environment:
+      - MYSQL_USER=root
+      - MYSQL_ROOT_PASSWORD=senhadoroot 
+    volumes:
+      - ../mariadb:/var/lib/mysql
+    ports: 
+      - 3306:3306
+  backend:
+    image: diellyr/enquete.nodejs
+    hostname: node
+    container_name: node
+    volumes: 
+      - ../nodejs:/root
+    ports:
+      - 3000:3000
+  frontend: 
+    image: diellyr/enquete.http
+    hostname: http
+    container_name: http
+    volumes: 
+      - ../apache:/app
+    ports: 
+      - 800:80
+      
+      
+### D) inicie o docker-compose
+
+$ cd /root/Enquete/compose/
+
+$ docker-compose up
+
+### E) testando a aplicação
+
+(abra um navegador , apenas no chrome funcionou o som de inicio, no firefox funciona os demais sons )
+
+(aqui sua aplicação já deve estar funcionando)
+http://localhost:800/
+
+
+(no final tem uma seção de troubleshooting)
+
+
+
+--------------------------------------------------------------------------------------------
 
 ### troubleshouting
 
