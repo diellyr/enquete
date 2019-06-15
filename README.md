@@ -48,10 +48,12 @@ $ docker-compose up
 http://localhost:800/
 
 
-(no final tem uma seção de troubleshooting)
+
+(no final tem uma seção de troubleshooting, apenas se houver algum erro)
 
 
 
+# Fim
 
 
 
