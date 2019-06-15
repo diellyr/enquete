@@ -2,7 +2,7 @@
 
 obs : é necessário ter o docker instalado em seu Linux (apenas linux)
 
-# Instalação do Docker
+### Instalação do Docker
 
 - Usuários que tem o seu sistema baseado em Debian podem usar o apt-get ou o aptitude:
 
@@ -14,20 +14,100 @@ sudo apt-get install docker.io
 
 yum install docker
 
-# Baixar os conteiners e a aplicação
+### Instalação do Docker compose
 
-### 0 - baixando os dados da aplicação 
+yum install docker-compose
+
+
+# Opção 1 - Usando com Docker compose
+
+### A) - baixando os dados da aplicação 
 
 descompacte o arquivo enquete.tar.gz dentro de /root
 
-### 1 - baixe os dockers abaixo
+### B) - altere o apontamento do nodejs para o mariadb conforme abaixo 
+(obs: logo estarei alterando esta linha e subindo aqui no github)
+
+$ vim /root/Enquete/nodejs/select.js
+//    host     : '172.20.0.2',
+host     : 'mariadb',
+
+### C) - crie um novo diretorio e adicione o arquivo abaixo
+
+$ mkdir /root/Enquete/compose/
+
+$ vim docker-compose.yml
+
+version: '3'
+services: 
+  db:
+    image: diellyr/enquete.mariadb
+    restart: always
+    hostname: mariadb
+    container_name: mariadb
+    environment:
+      - MYSQL_USER=root
+      - MYSQL_ROOT_PASSWORD=senhadoroot 
+    volumes:
+      - ../mariadb:/var/lib/mysql
+    ports: 
+      - 3306:3306
+  backend:
+    image: diellyr/enquete.nodejs
+    hostname: node
+    container_name: node
+    volumes: 
+      - ../nodejs:/root
+    ports:
+      - 3000:3000
+  frontend: 
+    image: diellyr/enquete.http
+    hostname: http
+    container_name: http
+    volumes: 
+      - ../apache:/app
+    ports: 
+      - 800:80
+      
+      
+### D) inicie o docker-compose
+
+$ cd /root/Enquete/compose/
+
+$ docker-compose up
+
+### E) testando a aplicação
+
+(abra um navegador , de preferência o firefox)
+
+(aqui sua aplicação já deve estar funcionando)
+http://localhost:800/
+
+
+(no final tem uma seção de troubleshooting)
+
+
+------------------------------------------------------------------------------------------
+
+
+
+
+# Opção 2 - subindo cada container manualmente
+
+## Baixar os conteiners e a aplicação
+
+### A) - baixando os dados da aplicação 
+
+descompacte o arquivo enquete.tar.gz dentro de /root
+
+### B) - caso queira primeiro baixar os containers ( mas pode pular Direto para o passo C )
 
 docker pull diellyr/enquete.mariadb
 docker pull diellyr/enquete.nodejs
 docker pull diellyr/enquete.http
 
 
-### 2 - iniciando os dockers
+### C) - iniciando os dockers
 
 ### - o Primeiro start pode ser feito conforme abaixo
 
@@ -77,7 +157,7 @@ docker start httpd
 
 ### troubleshouting
 
-- verificando se o nodejs está funcionando
+- verificando se o nodejs está funcionando (caso precise testar a chamada direto ao nodejs)
 
 http://localhost:3000/perguntas/1   
 
