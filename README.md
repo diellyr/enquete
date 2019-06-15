@@ -40,7 +40,7 @@ $ vim /root/Enquete/nodejs/select.js
 //    host     : '172.20.0.2',
 host     : 'mariadb',
 
-### C) - crie um novo diretorio e adicione o arquivo abaixo
+### C) - crie um novo diretorio e adicione o arquivo abaixo ( faça um clone deste repositório para ter a indentação)
 
 $ mkdir /root/Enquete/compose/
 
