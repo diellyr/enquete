@@ -29,6 +29,8 @@ yum install docker-compose
 
 # Opção 1 - Usando Docker Compose com Pipeline Jenkinsfile ( A opção mais facil para quem já esta familiarizado )
 
+### Atenção: se algum serviço usa as portas (800,3000,3306) precisam estar down.
+
 ### A) Configure seu pipeline no Jenkins com o Jenkinsfile abaixo
 
 https://github.com/diellyr/Jenkinsfiles_Examples/blob/master/Jenkinsfile_docker-compose_Enquete
