@@ -99,7 +99,7 @@ $ docker-compose up
 
 ### C) testando a aplicação
 
-(abra um navegador , apenas no chrome funcionou o som de inicio, no firefox funciona os demais sons )
+(abra um navegador , no chrome funcionou o som no inicio mas é instável, o firefox é o mais indicado )
 
 (aqui sua aplicação já deve estar funcionando)
 http://localhost:800/
