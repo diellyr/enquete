@@ -284,15 +284,18 @@ http://localhost:800/
 
 ### parando e subindo os conteineres
 
-- para o banco
+- parar o banco
+
 docker stop mariadb, 
 docker start mariadb
 
-- para o nodejs
+- parar o nodejs
+
 docker stop node
 docker start node
 
-- para o apache
+- parar o apache
+
 docker stop http
 docker start http
 
