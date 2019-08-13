@@ -62,15 +62,18 @@ http://localhost:800/
 
 ### parando e subindo os conteineres
 
-- para o banco
+- parar o banco
+
 docker stop mariadb, 
 docker start mariadb
 
-- para o nodejs
+- parar o nodejs
+
 docker stop node
 docker start node
 
-- para o apache
+- parar o apache
+
 docker stop http
 docker start http
 
@@ -218,7 +221,7 @@ docker start http
 -------------------------------------------------------------------------------------------
 
 
-# Opção 3 - Usando com Docker compose ( Arquivo antigo ) (somente se houver problemas na Opção 1 no começo desta página) 
+# Opção 4 - Usando com Docker compose ( Arquivo antigo ) (somente se houver problemas na Opção 1 no começo desta página) 
 
 ### A) - baixando os dados da aplicação 
 
