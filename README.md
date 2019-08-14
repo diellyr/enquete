@@ -50,7 +50,7 @@ sudo usermod -a -G docker jenkins
 
 ### B) testando a aplicação
 
-(abra um navegador , apenas no chrome funcionou o som de inicio, no firefox funciona os demais sons )
+(abra um navegador , apenas no chrome funcionou corretamente )
 
 (aqui sua aplicação já deve estar funcionando)
 http://localhost:800/
