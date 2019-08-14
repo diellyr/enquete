@@ -1,0 +1,111 @@
+# Estrutura atual banco Enquete
+
+- entrando no docker
+
+docker exec -ti mariadb /bin/sh
+
+- conectando no banco
+
+mysql -u root -p
+
+(senhadoroot)
+
+-  mostrando a base
+
+show databases ;
+
+-  mudando a base
+
+Use enquete;
+
+- mostrando as tabelas
+
+show tables;
+
+- fazendo o select
+
+select * from perguntas ;
+
+- estrutura
+
+id | questao    |a     |b   |c   |d  |r   |r2    
+
+
+---
+
+#  criando nova base
+
+https://pt.wikihow.com/Criar-um-Banco-de-Dados-em-MySQL
+
+- 1)  caso precise deletar a base, (mas em nosso caso não é necessário)
+
+drop database enquete;
+
+- 2) Para criar uma base execute o seguinte comando: (mas em nosso caso não é necessário)
+
+CREATE DATABASE enquete;
+
+    (em nosso caso, pode pular para o passo 5)
+ 
+- 3) Para criar um usuário execute o seguinte comando:
+
+CREATE USER 'usuario'@'localhost' IDENTIFIED BY 'senha';
+
+- 4) Para atribuir permissões de acesso a base ao usuário execute o seguinte comando:
+
+GRANT ALL PRIVILEGES ON us_states . * TO 'usuario'@'localhost'; FLUSH PRIVILEGES;
+
+- 5) para mostrar as bases
+
+SHOW DATABASES;
+
++--------------------+
+| Database |
++--------------------+
+| information_schema |
+| enquete |
+| mysql |
+| performance_schema |
+| test |
+| us_states |
++--------------------+
+
+- 6 ) Selecione sua base de dados
+
+USE enquete;
+
+- 7 ) delete a table atual e crie uma nova table
+
+drop table perguntas;
+
+show tables;
+
+CREATE TABLE perguntas (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, questao CHAR(255), a CHAR(80), b CHAR(80), c CHAR(80), d CHAR(80), r CHAR(80), r2 CHAR(80) );
+
+O comando INT fará com que o campo id contenha apenas números (inteiros).
+O comando NOT NULL certifica que o campo id não pode ser deixado em branco.
+O comando PRIMARY KEY designa o campo id como campo chave na tabela. O campo chave deveria ser definido para um campo que não contenha dados duplicados.
+O comando AUTO_INCREMENT irá atribuir automaticamente valores crescentes para o campo id, essencialmente numerando automaticamente cada entrada.
+Os comandos CHAR(caracteres) e INT(inteiros) designam os tipos de dados permitidos nos campos. Os números próximos aos comandos indicam quantos caracteres podem ser inseridos neste campo.
+
+- 8 ) para mostrar as tabelas criadas;
+
+show tables;
+
+- 9 ) crie uma entrada
+
+INSERT INTO perguntas (id,questao,a,b,c,d,r,r2) VALUES (NULL, 'questao','alter.a', 'alter.b','alter.c','alter.d','resp1','resp2');
+
+- 10 ) ou crie varias entradas
+
+INSERT INTO perguntas (id,questao,a,b,c,d,r,r2) VALUES (NULL, 'questao','alter.a', 'alter.b','alter.c','alter.d','resp1','resp2'), (NULL,'questao', 'alter.a', 'alter.b','alter.c','alter.d','resp1','resp2');
+
+- 11 ) Consulta
+SELECT * FROM enquete;
+
++----+---------+------------+------------+------------+------------+------------+------------+
+| id | questao  | a         | b            | c              | d             | r              | r2
++----+---------+------------+------------+------------+------------+------------+------------+
+| 1 | blablabla |alter.a |alter.b  |alter.c       |alter.d    | resp1   | resp2    
+| 2 |  blablabla|alter.a |alter.b  |alter.c       |alter.d    | resp1   | resp2
++----+---------+------------+------------+------------+------------+------------+------------+
