@@ -26,8 +26,23 @@ yum install docker
 
 yum install docker-compose
 
+# Opção 1 - Subindo através de script Shell
 
-# Opção 1 - Usando Docker Compose com Pipeline Jenkinsfile ( A opção mais facil para quem já esta familiarizado )
+A - baixar este repositório em sua máquina
+B - descompactar a pasta Enquete.tar.gz no terminal com o comando: tar -xvzf Enquete.tar.gz  
+C - dentro da pasta Enquete existe dois arquivos, para subir os containers execute:
+
+- subindo os containers dockers
+./Enquete_start.sh
+
+- abra o chome e abra o link abaixo que ja vai estar funcionando:
+localhost:800  
+
+- quando precisar dar stop
+./Enquete_stop.sh
+
+
+# Opção 2 - Usando Docker Compose com Pipeline Jenkinsfile ( A opção mais facil para quem já esta familiarizado )
 
 ### Atenção: se algum serviço usa as portas (800,3000,3306) precisam estar down.
 
@@ -84,7 +99,7 @@ docker start http
 ------------------------------------------------------------------------------------------
 
 
-# Opção 2 - Usando com Docker compose
+# Opção 3 - Usando com Docker compose
 
 ### A) - baixando os dados da aplicação 
 
@@ -141,7 +156,7 @@ docker start http
 
 
 
-# Opção 3 - subindo cada container manualmente
+# Opção 4 - subindo cada container manualmente
 
 ## Baixar os conteiners e a aplicação
 
@@ -224,7 +239,7 @@ docker start http
 -------------------------------------------------------------------------------------------
 
 
-# Opção 4 - Usando com Docker compose ( Arquivo antigo ) (somente se houver problemas na Opção 1 no começo desta página) 
+# Opção 5 - Usando com Docker compose ( Arquivo antigo ) (somente se houver problemas na Opção 1 no começo desta página) 
 
 ### A) - baixando os dados da aplicação 
 
